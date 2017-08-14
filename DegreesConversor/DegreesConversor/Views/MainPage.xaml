@@ -1,10 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DegreesConversor.Views.MainPage">
+             x:Class="DegreesConversor.Views.MainPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
+        <StackLayout
+        Padding="50">
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Degrees Conversor"
+                FontSize="Large">
+            </Label>
+            <Label
+                Text="Convert Fahrenheit to Celsius">
+            </Label>
+            <Entry
+                Text="{Binding Fahrenheit, Mode=TwoWay}"
+                Placeholder="Enter the Degrees Fahrenheit"
+                Keyboard="Numeric">
+            </Entry>
+            <Button
+                Command="{Binding ConvertToCelsius}"
+                Text="Convert to Celsius">
+            </Button>
+            <Label
+                Text="Convert Celsius to Fahrenheit">
+            </Label>
+            <Entry
+                Text="{Binding Celsius, Mode=TwoWay}"
+                Placeholder="Enter the Degrees Celsius"
+                Keyboard="Numeric">
+            </Entry>
+            <Button
+                Command="{Binding ConvertToFahrenheit}"
+                Text="Convert to Fahrenheit">
+            </Button>
+            <Entry
+                Placeholder="Result"
+                IsEnabled="False"
+                Text="{Binding Result, Mode=TwoWay}">
+            </Entry>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
